@@ -27,7 +27,7 @@ return [
         /*
          * Should the database be part of the back up.
          */
-        'backup-db' => true,
+        'backup-db' => env('BACKUP_DATABASE', true),
     ],
 
     'destination' => [
@@ -36,7 +36,7 @@ return [
          * The filesystem(s) you on which the backups will be stored. Choose one or more
          * of the filesystems you configured in app/config/filesystems.php
          */
-        'filesystem' => ['local'],
+        'filesystem' => explode('|', env('BACKUP_FILESYSTEM','local')),
 
         /*
          * The path where the backups will be saved. This path
@@ -47,15 +47,15 @@ return [
          * be automatically placed in this directory so you don't
          * accidentally end up committing these backups.
          */
-        'path' => 'backups',
+        'path' => env('BACKUP_PATH', 'backups'),
 
         /*
          * By default the backups will be stored as a zipfile with a
          * timestamp as the filename. With these options You can
          * specify a prefix and a suffix for the filename.
          */
-        'prefix' => '',
-        'suffix' => '',
+        'prefix' => env('BACKUP_PREFIX', ''),
+        'suffix' => env('BACKUP_SUFFIX', ''),
     ],
 
     'clean' => [
@@ -63,7 +63,7 @@ return [
          * The clean command will remove all backups on all configured filesystems
          * that are older then this amount of days.
          */
-        'maxAgeInDays' => 90,
+        'maxAgeInDays' => env('BACKUP_MAX_AGE', 90),
     ],
 
     'mysql' => [
