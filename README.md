@@ -11,6 +11,12 @@ This Laravel 5 package creates a backup of your application. The backup is a zip
 
 Feeling paranoid about backups? No problem! You can backup your application to multiple filesystems at once.
 
+Once installed taking a backup of your files and databases is very easy. Just issue this artisan command:
+
+``` bash
+php artisan backup:run
+```
+
 Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## Prerequisites
